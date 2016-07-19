@@ -27,4 +27,8 @@ angular
           console.log(err);
       });
     });
+
+    $scope.setQuery = function(newQuery) {
+      $scope.search.query = newQuery;
+    };
   }]);

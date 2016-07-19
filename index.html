@@ -49,10 +49,19 @@
               </div>
             </a>
 
-            <div class="row">
+            <div class="row product-details">
               <a href="{{hit.url}}">
                 <h4>{{hit.name}}</h4>
               </a>
+
+
+              <div>
+                by <span ng-click="setQuery(hit.brand)" class="brand">{{hit.brand}}</span>
+              </div>
+              <div>
+                <h5>{{hit.price}}</h5>
+              </div>
+
             </div>
           </div>
 

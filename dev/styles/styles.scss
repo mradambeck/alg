@@ -2,14 +2,62 @@
 //   border: 1px dotted grey;
 // }
 
-.card {
-  border: 1px dotted grey;
-  padding: 20px 20px 20px 20px;
-  margin: 5px;
+$prod-bg: #e6e6e8;
+$prod-title: #003b64;
+
+$card-border: #dddddd;
+$card-shadow: rgba(0,0,0,0.3);
+$card-shadow-dark: rgba(0,0,0,0.3);
+
+
+a:hover {
+  text-decoration: none!important;
 }
 
-.search-results img {
+.brand {
+  color: $prod-title;
+}
+
+.card {
+  // border: 1px solid $card-border;
+  margin: 5px;
+  min-height: 300px!important;
+  position: relative;
+
+  // shadow
+  -webkit-box-shadow: 1px 2px 6px 0px $card-shadow;
+  -moz-box-shadow: 1px 2px 6px 0px $card-shadow;
+  box-shadow: 1px 2px 6px 0px $card-shadow;
+}
+
+.card:hover {
+  // shadow
+  -webkit-box-shadow: 2px 3px 6px 0px $card-shadow-dark;
+  -moz-box-shadow: 2px 3px 6px 0px $card-shadow-dark;
+  box-shadow: 2px 3px 6px 0px $card-shadow-dark;
+}
+
+.card img {
   display: block;
   margin: auto;
   max-width: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.product-details {
+  background-color: $prod-bg;
+  padding: 10px 20px 10px 20px;
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  min-width: 100%;
+
+  a {
+    color: $prod-title;
+    :hover {
+      color: darken($prod-title, 10);
+    }
+  }
 }
