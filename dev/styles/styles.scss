@@ -1,3 +1,15 @@
-div {
+// div {
+//   border: 1px dotted grey;
+// }
+
+.card {
   border: 1px dotted grey;
+  padding: 20px 20px 20px 20px;
+  margin: 5px;
+}
+
+.search-results img {
+  display: block;
+  margin: auto;
+  max-width: 90%;
 }
