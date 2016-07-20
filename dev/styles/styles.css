@@ -1,4 +1,47 @@
-div {
-  border: 1px dotted grey; }
+body {
+  background-color: #e6e6e8 !important; }
+
+a:hover {
+  text-decoration: none !important; }
+
+.autocomplete li {
+  list-style: none; }
+
+.brand {
+  color: #003b64; }
+
+.card {
+  margin: 5px;
+  position: relative;
+  background-color: #ffffff;
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3); }
+
+.card:hover {
+  -webkit-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3); }
+
+.card img {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.image-cell {
+  min-height: 203px;
+  background-color: #ffffff !important; }
+
+.product-details {
+  background-color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  min-height: 100%; }
+  .product-details a {
+    color: #003b64; }
+    .product-details a :hover {
+      color: #001d31; }
 
 /*# sourceMappingURL=styles.css.map */
