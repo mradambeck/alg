@@ -10,10 +10,6 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     keywords: []
   };
 
-
-
-
-
   // API access tokens
   var appId = 'LSTLHX1M78',
       apiKey = '2d33957a1e2b70a7d312983b2a1058d7';
@@ -26,9 +22,7 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
       categoriesIndex = client.initIndex('best_buy-categories');
 
 
-
-
-
+  // Search functionality
   $scope.$watch('search.query', function() {
 
     // SEARCH RESULTS
@@ -45,17 +39,22 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     );
 
 
-    // Generate keywords for Autocomplete
+    // AUTOCOMPLETE
     var createAutoComp = function (keyType, index) {
-      $scope.search.keywords = [];
+
+      $scope.search.keywords = []; // clear keywords
+
       index.search($scope.search.query)
         .then(function searchSuccess(content) {
-            var thisKeyArray = generateKeywords(content.hits, keyType);
+
+            var thisKeyArray = generateKeywords(content.hits, keyType); // Create keywords
+
+            // push keywords to same array
             while (thisKeyArray.length > 0) {
               $scope.search.keywords.push(thisKeyArray.pop());
               $scope.search.keywords = dedupe($scope.search.keywords).sort().splice(0, 10);
-
             }
+
         }, function searchFailure(err) {
           console.error(err);
         }
@@ -68,11 +67,9 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     createAutoComp('brand', brandIndex);
     createAutoComp('name', nameIndex);
     // createAutoComp('categories', categoriesIndex, query);
-
-
-
   });
 
+  // reset query upon clicking autocomplete result
   $scope.setQuery = function(newQuery) {
     $scope.search.query = newQuery;
   };
