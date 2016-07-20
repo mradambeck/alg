@@ -41,9 +41,28 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </div>
 
-        <ul ng-if="search.query" ng-repeat="keyword in search.keywords" class="autocomplete" ng-click="setQuery(keyword)">
-          {{keyword}}
-        </ul>
+        <div ng-if="search.query">
+          <div class="row" ng-if="search.brands.length !== 0">
+            BRANDS
+            <ul class="autocomplete" ng-repeat="brand in search.brands" ng-click="setQuery(brand)">
+              <li>{{brand}}</li>
+            </ul>
+          </div>
+
+          <div class="row" ng-if="search.products.length !== 0">
+            PRODUCTS
+            <ul class="autocomplete" ng-repeat="product in search.products" ng-click="setQuery(product)">
+              <li>{{product}}</li>
+            </ul>
+          </div>
+
+          <div class="row" ng-if="search.categories.length !== 0">
+            RELATED CATEGORIES
+            <ul class="autocomplete" ng-repeat="category in search.categories" ng-click="setQuery(category)">
+              <li>{{category}}</li>
+            </ul>
+          </div>
+        </div> <!-- ng-if -->
 
       </div> <!-- search-column -->
 

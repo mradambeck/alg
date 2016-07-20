@@ -7,7 +7,9 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
   $scope.search = {
     query: '',
     hits: [],
-    keywords: []
+    brands: [],
+    products: [],
+    categories: []
   };
 
   // API access tokens
@@ -42,18 +44,38 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     // AUTOCOMPLETE
     var createAutoComp = function (keyType, index) {
 
-      $scope.search.keywords = []; // clear keywords
+      $scope.search.brands = []; // clear keywords
+      $scope.search.products = [];
+      $scope.search.categories = [];
 
       index.search($scope.search.query)
         .then(function searchSuccess(content) {
 
-            var thisKeyArray = generateKeywords(content.hits, keyType); // Create keywords
+            var thisKeyHash = generateKeywords(content.hits, keyType); // Create keywords
+            console.log(thisKeyHash);
 
             // push keywords to same array
-            while (thisKeyArray.length > 0) {
-              $scope.search.keywords.push(thisKeyArray.pop());
-              $scope.search.keywords = dedupe($scope.search.keywords).sort().splice(0, 10);
+            while (thisKeyHash.keywords.length > 0) {
+              switch(thisKeyHash.keyType) {
+                case 'brand':
+                  $scope.search.brands.push(thisKeyHash.keywords.pop());
+                  $scope.search.brands = dedupe($scope.search.brands).sort().splice(0, 5);
+                  break;
+                case 'name':
+                  $scope.search.products.push(thisKeyHash.keywords.pop());
+                  $scope.search.products = dedupe($scope.search.products).sort().splice(0, 5);
+                  break;
+                case 'categories':
+                  $scope.search.categories.push(thisKeyHash.keywords.pop());
+                  $scope.search.categories = dedupe($scope.search.categories).sort().splice(0, 5);
+                  break;
+                default:
+                  console.error('Improper thisKeyHash');
+              }
+
+
             }
+            console.log($scope.search);
 
         }, function searchFailure(err) {
           console.error(err);
@@ -61,12 +83,9 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
       );
     };
 
-    // var query = $scope.search.query;
-    // console.log('search.js - query = ', query);
-
     createAutoComp('brand', brandIndex);
     createAutoComp('name', nameIndex);
-    // createAutoComp('categories', categoriesIndex, query);
+    createAutoComp('categories', categoriesIndex);
   });
 
   // reset query upon clicking autocomplete result

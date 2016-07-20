@@ -35,7 +35,10 @@ var generateKeywords = function (hits, typeToFilter) {
 
   }
   var keywordArray = dedupe(newArray).sort();
+  var keyAndType = {
+    keywords: keywordArray,
+    keyType: typeToFilter
+  };
 
-  // console.log(newArray);
-  return keywordArray;
+  return keyAndType;
 };
