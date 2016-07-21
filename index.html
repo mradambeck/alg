@@ -33,7 +33,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-4 search-column">
+      <div class="col-sm-3 search-column">
 
         <div class="form-group" role="search">
           <input type="text" class="form-control" placeholder="Search" id="search-field" ng-model="search.query">
@@ -67,7 +67,7 @@
       </div> <!-- search-column -->
 
 
-      <div class="col-sm-8 results-column">
+      <div class="col-sm-9 results-column">
 
 
         <div class="row">
@@ -95,7 +95,7 @@
                     by <span ng-click="setQuery(hit.brand)" class="brand">{{hit.brand}}</span>
                   </div>
                   <div>
-                    <p>{{hit.description}}</p>
+                    <p class="description">{{hit.description}}</p>
                   </div>
                 </div>
 
@@ -108,11 +108,11 @@
                   </div>
                   <div class="star-rating">
                     <div ng-switch="hit.stars">
-                      <div ng-switch-when="5">*****</div>
-                      <div ng-switch-when="4">****</div>
-                      <div ng-switch-when="3">***</div>
-                      <div ng-switch-when="2">**</div>
-                      <div ng-switch-when="1">*</div>
+                      <div ng-switch-when="5"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
+                      <div ng-switch-when="4"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
+                      <div ng-switch-when="3"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
+                      <div ng-switch-when="2"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
+                      <div ng-switch-when="1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></div>
                     </div>
 
                   </div>
