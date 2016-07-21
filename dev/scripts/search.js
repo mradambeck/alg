@@ -32,6 +32,10 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
       .then(function searchSuccess(content) {
         var hits = content.hits;
 
+        for (var i = 0; i < hits.length; i++) {
+          hits[i].stars = setStars(hits[i].popularity);
+        }
+
         // add content of search results to scope for display in view
         $scope.search.hits = hits;
 
@@ -54,7 +58,7 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
             var thisKeyHash = generateKeywords(content.hits, keyType); // Create keywords
             console.log(thisKeyHash);
 
-            // push keywords to same array
+            // push keywords to arrays
             while (thisKeyHash.keywords.length > 0) {
               switch(thisKeyHash.keyType) {
                 case 'brand':

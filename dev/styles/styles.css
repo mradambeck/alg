@@ -1,5 +1,11 @@
+div {
+  border: 1px dotted grey; }
+
 body {
   background-color: #e6e6e8 !important; }
+
+ul {
+  padding-left: 8px; }
 
 a:hover {
   text-decoration: none !important; }

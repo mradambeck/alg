@@ -35,29 +35,29 @@
     <div class="row">
       <div class="col-sm-4 search-column">
 
-        <div class="form-group form-inline" role="search">
+        <div class="form-group" role="search">
           <input type="text" class="form-control" placeholder="Search" id="search-field" ng-model="search.query">
 
-          <button type="submit" class="btn btn-default">Submit</button>
+          <!-- <button type="submit" class="btn btn-default">Submit</button> -->
         </div>
 
         <div ng-if="search.query">
           <div class="row" ng-if="search.brands.length !== 0">
-            BRANDS
+            <h6>BRANDS</h6>
             <ul class="autocomplete" ng-repeat="brand in search.brands" ng-click="setQuery(brand)">
               <li>{{brand}}</li>
             </ul>
           </div>
 
           <div class="row" ng-if="search.products.length !== 0">
-            PRODUCTS
+            <h6>PRODUCTS</h6>
             <ul class="autocomplete" ng-repeat="product in search.products" ng-click="setQuery(product)">
               <li>{{product}}</li>
             </ul>
           </div>
 
           <div class="row" ng-if="search.categories.length !== 0">
-            RELATED CATEGORIES
+            <h6>RELATED CATEGORIES</h6>
             <ul class="autocomplete" ng-repeat="category in search.categories" ng-click="setQuery(category)">
               <li>{{category}}</li>
             </ul>
@@ -80,12 +80,12 @@
 
               <div class="col-xs-12 card">
                 <a href={{hit.url}}>
-                  <div class="col-xs-4 image-cell">
+                  <div class="col-xs-3 image-cell">
                     <img ng-src={{hit.image}}>
                   </div>
                 </a>
 
-                <div class="col-xs-8 product-details">
+                <div class="col-xs-6 product-details">
                   <a href="{{hit.url}}">
                     <h4>{{hit.name}}</h4>
                   </a>
@@ -95,9 +95,31 @@
                     by <span ng-click="setQuery(hit.brand)" class="brand">{{hit.brand}}</span>
                   </div>
                   <div>
-                    <h5>{{hit.price}}</h5>
+                    <p>{{hit.description}}</p>
+                  </div>
+                </div>
+
+                <div class="col-xs-3 product-pricing">
+                  <div>
+                    <h3>${{hit.price}}</h3>
+                  </div>
+                  <div ng-if="hit.free_shipping === true">
+                    Includes Free Shipping
+                  </div>
+                  <div class="star-rating">
+                    <div ng-switch="hit.stars">
+                      <div ng-switch-when="5">*****</div>
+                      <div ng-switch-when="4">****</div>
+                      <div ng-switch-when="3">***</div>
+                      <div ng-switch-when="2">**</div>
+                      <div ng-switch-when="1">*</div>
+                    </div>
+
                   </div>
 
+                  <div class="purchase-button">
+                    <a href="{{hit.url}}" class="btn btn-success">Add to Cart</a>
+                  </div>
                 </div>
 
               </div>
