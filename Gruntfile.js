@@ -11,16 +11,17 @@ module.exports = function(grunt) {
           {expand: true, src: ['README.md'], dest: 'dist'}
         ]
       },
-      // options: {
-      //   noProcess: ['**/*.{css,md}'],
-      //   process: [
-      //     function (content, srcpath) {
-      //       content = content.replace(/dev\/scripts\/app.js/g, 'scripts/index.js.map');
-      //       // content = content.replace(/<script src=\'dev\/scripts\/search\.js\'\><\/script>/g, "");
-      //       return content;
-      //     }
-      //   ],
-      // },
+      options: {
+        noProcess: ['**/*.{css,md}'],
+        process:
+          function (content, srcpath) {
+            // console.log(content);
+            var firstPass = content.replace(/\/app.js/, '/index.min.js');
+            var secondPass = firstPass.replace(/<script src=\'scripts\/search\.js\'><\/script>/, " ");
+
+            return secondPass;
+          }
+      },
     },
     uglify: {
       my_target: {
