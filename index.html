@@ -22,11 +22,11 @@
 </head>
 
 <body ng-controller="SearchCtrl">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
 
-        <span class="navbar-brand">BEST BUY</span>
+        <span class="navbar-brand"><span class="glyphicon glyphicon-tag"></span> BEST BUY</span>
 
       </div>
     </div>
@@ -42,7 +42,7 @@
           <input type="text" class="form-control" placeholder="Search" id="search-field" ng-model="search.query">
         </div>
 
-        <div ng-if="search.query"> <!-- hide default results until something is queried -->
+        <div ng-if="search.query" class="autocomplete-results"> <!-- hide default results until something is queried -->
 
           <div class="row" ng-if="search.brands.length !== 0">
             <h6>BRANDS</h6>
@@ -109,10 +109,18 @@
                   <div>
                     <p class="description">{{hit.description}}</p>
                   </div>
+                  <div>
+                    <ul class="list-inline">
+                      <li ng-repeat="category in hit.categories" ng-click="setQuery(category);" class="text-uppercase result-category">
+                        {{category}}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
                 <!-- pricing column -->
                 <div class="col-sm-3 product-pricing">
+                  <span class="hidden-sm hidden-md hidden-lg"><hr /></span>
                   <div>
                     <h2>${{hit.price}}</h2>
                   </div>
@@ -121,7 +129,7 @@
                   </div>
 
                   <div class="purchase-button">
-                    <a href="{{hit.url}}" class="btn btn-success btn-block cta-button">Add to Cart</a>
+                    <a href="{{hit.url}}" class="btn btn-warning btn-block cta-button"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="hidden-sm">Add to </span>Cart</a>
                   </div>
                 </div>
 
