@@ -30,6 +30,7 @@ a:hover {
 .autocomplete li {
   list-style: none;
 }
+
 .brand {
   color: $prod-title;
 }
@@ -91,9 +92,16 @@ a:hover {
   }
 }
 
+
+
+.cta-button {
+  margin-bottom: 30px!important;
+}
+
 .shipping {
   font-size: 10px;
   font-weight: 800;
+  margin-bottom: 15px;
 }
 
 .star-rating {
