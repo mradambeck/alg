@@ -1,5 +1,19 @@
 console.log('sanity check: app.js is running.');
 
+var setStars = function(popularity) {
+  if (popularity < 2000) {
+    return 5;
+  } else if (popularity < 4000) {
+    return 4;
+  } else if (popularity < 6000) {
+    return 3;
+  } else if (popularity < 8000) {
+    return 2;
+  } else {
+    return 1;
+  }
+};
+
 var dedupe = function (array) {
   return Array.from(new Set(array));
 };

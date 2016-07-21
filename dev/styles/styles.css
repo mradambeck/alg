@@ -1,6 +1,12 @@
 body {
   background-color: #e6e6e8 !important; }
 
+h6 {
+  font-weight: 800 !important; }
+
+ul {
+  padding-left: 8px; }
+
 a:hover {
   text-decoration: none !important; }
 
@@ -14,14 +20,14 @@ a:hover {
   margin: 5px;
   position: relative;
   background-color: #ffffff;
-  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3); }
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2); }
 
 .card:hover {
-  -webkit-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.3); }
+  -webkit-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4); }
 
 .card img {
   display: block;
@@ -30,6 +36,10 @@ a:hover {
   max-height: 90%;
   padding-top: 20px;
   padding-bottom: 20px; }
+
+.description {
+  font-size: 12px;
+  margin-top: 10px; }
 
 .image-cell {
   min-height: 203px;
@@ -43,5 +53,13 @@ a:hover {
     color: #003b64; }
     .product-details a :hover {
       color: #001d31; }
+
+.shipping {
+  font-size: 10px;
+  font-weight: 800; }
+
+.star-rating {
+  color: #ffe600;
+  padding-right: 20px; }
 
 /*# sourceMappingURL=styles.css.map */

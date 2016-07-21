@@ -33,41 +33,42 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-sm-4 search-column">
 
-        <div class="form-group form-inline" role="search">
+      <!-- search column -->
+      <div class="col-sm-3 search-column">
+
+        <div class="form-group" role="search">
           <input type="text" class="form-control" placeholder="Search" id="search-field" ng-model="search.query">
-
-          <button type="submit" class="btn btn-default">Submit</button>
         </div>
 
-        <div ng-if="search.query">
+        <div ng-if="search.query"> <!-- hide default results until something is queried -->
+
           <div class="row" ng-if="search.brands.length !== 0">
-            BRANDS
+            <h6>BRANDS</h6>
             <ul class="autocomplete" ng-repeat="brand in search.brands" ng-click="setQuery(brand)">
               <li>{{brand}}</li>
             </ul>
           </div>
 
           <div class="row" ng-if="search.products.length !== 0">
-            PRODUCTS
-            <ul class="autocomplete" ng-repeat="product in search.products" ng-click="setQuery(product)">
+            <h6>PRODUCTS</h6>
+            <div class="autocomplete" ng-repeat="product in search.products" ng-click="setQuery(product)">
               <li>{{product}}</li>
-            </ul>
+            </div>
           </div>
 
           <div class="row" ng-if="search.categories.length !== 0">
-            RELATED CATEGORIES
+            <h6>RELATED CATEGORIES</h6>
             <ul class="autocomplete" ng-repeat="category in search.categories" ng-click="setQuery(category)">
               <li>{{category}}</li>
             </ul>
           </div>
-        </div> <!-- ng-if -->
+        </div> <!-- /ng-if -->
 
-      </div> <!-- search-column -->
+      </div> <!-- /search-column -->
 
 
-      <div class="col-sm-8 results-column">
+      <div class="col-sm-9 results-column">
 
 
         <div class="row">
@@ -77,38 +78,63 @@
             <!-- render search hits -->
             <span ng-repeat="hit in search.hits" class="search-results">
 
-
               <div class="col-xs-12 card">
+                <!-- image -->
                 <a href={{hit.url}}>
-                  <div class="col-xs-4 image-cell">
+                  <div class="col-xs-3 image-cell">
                     <img ng-src={{hit.image}}>
                   </div>
                 </a>
 
-                <div class="col-xs-8 product-details">
+                <!-- product details -->
+                <div class="col-xs-6 product-details">
                   <a href="{{hit.url}}">
                     <h4>{{hit.name}}</h4>
                   </a>
 
-
                   <div>
                     by <span ng-click="setQuery(hit.brand)" class="brand">{{hit.brand}}</span>
-                  </div>
-                  <div>
-                    <h5>{{hit.price}}</h5>
+
+                    <!-- handle star ratings -->
+                    <span class="star-rating pull-right">
+                      <span ng-switch="hit.stars">
+                        <span ng-switch-when="5"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span>
+                        <span ng-switch-when="4"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span>
+                        <span ng-switch-when="3"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span>
+                        <span ng-switch-when="2"><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span>
+                        <span ng-switch-when="1"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></span>
+                      </span>
+                    </span> <!-- /star ratings -->
                   </div>
 
+                  <div>
+                    <p class="description">{{hit.description}}</p>
+                  </div>
+                </div>
+
+                <!-- pricing -->
+                <div class="col-xs-3 product-pricing">
+                  <div>
+                    <h3>${{hit.price}}</h3>
+                  </div>
+                  <div ng-if="hit.free_shipping === true" class="shipping">
+                    FREE SHIPPING
+                  </div>
+
+                  <div class="purchase-button">
+                    <a href="{{hit.url}}" class="btn btn-success">Add to Cart</a>
+                  </div>
                 </div>
 
               </div>
 
 
-            </span>
-            <!-- /search hits -->
+            </span> <!-- /search hits -->
+
           </div>
         </div>
 
-      </div>
+      </div> <!-- /results column -->
 
 
     </div>
