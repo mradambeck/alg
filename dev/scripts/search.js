@@ -4,6 +4,7 @@ var app = angular.module('algolia-challenge', ['algoliasearch']);
 
 app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
 
+  // View model for search results
   $scope.search = {
     query: '',
     hits: [],
@@ -11,6 +12,7 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     products: [],
     categories: []
   };
+
 
   // API access tokens
   var appId = 'LSTLHX1M78',
@@ -48,14 +50,16 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     // AUTOCOMPLETE
     var createAutoComp = function (keyType, index) {
 
-      $scope.search.brands = []; // clear keywords
+      // clear previous keywords
+      $scope.search.brands = [];
       $scope.search.products = [];
       $scope.search.categories = [];
 
       index.search($scope.search.query)
         .then(function searchSuccess(content) {
 
-            var thisKeyHash = generateKeywords(content.hits, keyType); // Create keywords
+            // Create keywords
+            var thisKeyHash = generateKeywords(content.hits, keyType);
 
             // push keywords to arrays
             while (thisKeyHash.keywords.length > 0) {
@@ -75,8 +79,6 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
                 default:
                   console.error('Improper thisKeyHash');
               }
-
-
             }
 
         }, function searchFailure(err) {
@@ -95,23 +97,3 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
     $scope.search.query = newQuery;
   };
 }]);
-
-
-
-
-// only show unique items
-app.filter('unique', function() {
-  return function(collection, keyname) {
-    var output = [],
-        keys = [];
-
-    angular.forEach(collection, function(item) {
-      var key = item[keyname];
-      if(keys.indexOf(key) === -1) {
-        keys.push(key);
-        output.push(item);
-      }
-    });
-    return output;
-  };
-});
