@@ -1,4 +1,4 @@
-console.log('Sanity check: search.js has been called');
+console.log('Sanity check: search.js');
 
 var app = angular.module('algolia-challenge', ['algoliasearch']);
 
@@ -56,7 +56,6 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
         .then(function searchSuccess(content) {
 
             var thisKeyHash = generateKeywords(content.hits, keyType); // Create keywords
-            console.log(thisKeyHash);
 
             // push keywords to arrays
             while (thisKeyHash.keywords.length > 0) {
@@ -79,7 +78,6 @@ app.controller('SearchCtrl', ['$scope', 'algolia', function($scope, algolia) {
 
 
             }
-            console.log($scope.search);
 
         }, function searchFailure(err) {
           console.error(err);

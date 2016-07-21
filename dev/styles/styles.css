@@ -54,9 +54,13 @@ a:hover {
     .product-details a :hover {
       color: #001d31; }
 
+.cta-button {
+  margin-bottom: 30px !important; }
+
 .shipping {
   font-size: 10px;
-  font-weight: 800; }
+  font-weight: 800;
+  margin-bottom: 15px; }
 
 .star-rating {
   color: #ffe600;

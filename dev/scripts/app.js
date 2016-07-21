@@ -1,4 +1,4 @@
-console.log('sanity check: app.js is running.');
+console.log('sanity check: app.js');
 
 var setStars = function(popularity) {
   if (popularity < 2000) {
@@ -35,18 +35,11 @@ var generateKeywords = function (hits, typeToFilter) {
         for(var j=0; j < hits[i].categories.length; j++) {
 
           newArray.push(hits[i].categories[j]);
-          // var catSubString = hits[i].categories[j].substr(0, query.length);
-          //
-          // if ( catSubString === query) {
-          //   newArray.push(hits[i].categories[j]);
-          // }
         }
         break;
       default:
         console.error('no typeToFilter provided in generateKeywords()');
-
     }
-
   }
   var keywordArray = dedupe(newArray).sort();
   var keyAndType = {
