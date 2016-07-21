@@ -1,0 +1,115 @@
+body {
+  background-color: #e6e6e8 !important; }
+
+h6 {
+  font-weight: 800 !important; }
+
+ul {
+  padding-left: 8px; }
+
+a:hover {
+  text-decoration: none !important; }
+
+.autocomplete li {
+  color: #4b4b4b;
+  list-style: none;
+  -webkit-transition: color .2s;
+  transition: color .2s; }
+
+.autocomplete li:hover {
+  color: black; }
+
+.autocomplete-results {
+  margin-left: 15px;
+  margin-right: 15px; }
+
+.brand {
+  color: #003b64; }
+
+.btn {
+  -webkit-transition: background-color .3s, border-color .3s;
+  transition: background-color .3s, border-color .3s; }
+
+.btn-warning {
+  background-color: #fadf00 !important;
+  border: 0px !important;
+  color: #003b64 !important; }
+
+.btn-warning:hover {
+  background-color: #eed501 !important; }
+
+.card {
+  margin: 5px;
+  position: relative;
+  background-color: #ffffff;
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: box-shadow .4s;
+  transition: box-shadow .4s; }
+
+.card:hover {
+  -webkit-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4);
+  -ms-box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 3px 6px 0px rgba(0, 0, 0, 0.4); }
+
+.card img {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.cta-button {
+  margin-bottom: 30px !important; }
+
+.description {
+  font-size: 12px;
+  margin-top: 10px; }
+
+.glyphicon-tag {
+  color: #fadf00 !important; }
+
+.image-cell {
+  min-height: 203px;
+  background-color: #ffffff !important; }
+
+.navbar {
+  background-color: #003b64 !important;
+  border: 0px !important;
+  border-radius: 0 !important; }
+
+.navbar-brand {
+  color: white !important; }
+
+.product-details {
+  background-color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  min-height: 100%; }
+  .product-details a {
+    color: #003b64; }
+    .product-details a :hover {
+      color: #001d31; }
+
+.result-category {
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer; }
+
+.search-column li,
+.brand {
+  cursor: pointer; }
+
+.shipping {
+  font-size: 10px;
+  font-weight: 800;
+  margin-bottom: 15px; }
+
+.star-rating {
+  color: #ffe600;
+  padding-right: 20px; }
+
+/*# sourceMappingURL=styles.css.map */
