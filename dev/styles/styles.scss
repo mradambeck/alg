@@ -1,6 +1,6 @@
-div {
-  border: 1px dotted grey;
-}
+// div {
+//   border: 1px dotted grey;
+// }
 
 $background: #e6e6e8!important;
 
@@ -8,11 +8,15 @@ $prod-bg: #ffffff;
 $prod-title: #003b64;
 
 $card-border: #dddddd;
-$card-shadow: rgba(0,0,0,0.3);
-$card-shadow-dark: rgba(0,0,0,0.3);
+$card-shadow: rgba(0,0,0,0.2);
+$card-shadow-dark: rgba(0,0,0,0.4);
 
 body {
   background-color: $background;
+}
+
+h6 {
+  font-weight: 800!important;
 }
 
 ul {
@@ -28,10 +32,6 @@ a:hover {
 }
 .brand {
   color: $prod-title;
-}
-
-.search-results {
-
 }
 
 .card {
@@ -64,6 +64,11 @@ a:hover {
 
 }
 
+.description {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
 .image-cell {
   min-height: 203px;
   background-color: #ffffff!important;
@@ -84,4 +89,14 @@ a:hover {
       color: darken($prod-title, 10);
     }
   }
+}
+
+.shipping {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.star-rating {
+  color: #ffe600;
+  padding-right: 20px;
 }
