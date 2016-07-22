@@ -10,8 +10,8 @@ Coding challenge for Algolia. Uses the Algolia Search API and Angular to create 
 
 ### Developing
 
-1. Run `npm install` to install server dependencies.
+1. Run `npm install` to install dependencies.
 
-2. Run `sass --watch styles/styles.scss:styles/styles.css` to compile your SCSS into css
+2. Run `sass --watch styles/styles.scss:styles/styles.css` to compile SCSS into css.
 
-3. Run `grunt deploy` to minify JS and push the site to GitHub Pages
+3. Run `grunt deploy` to minify JS and push the site to GitHub Pages.
