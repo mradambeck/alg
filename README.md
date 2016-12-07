@@ -1,6 +1,6 @@
-# Algolia coding challenge
+# Coding challenge
 
-Coding challenge for Algolia. Uses the Algolia Search API and Angular to create my own autocomplete for search results.
+Coding challenge. Uses the companies Search API and Angular to create my own autocomplete for search results.
 
 ### Prerequisites
 
